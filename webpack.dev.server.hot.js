@@ -9,8 +9,8 @@ new WebpackDevServer(webpack(config), {
   historyApiFallback: true
 }).listen(3000, 'localhost', function (err) {
   if (err) {
-    console.log(err);
+    console.log(err); //eslint-disable-line no-console
   }
 
-  console.log('Listening at localhost:3000');
+  console.log('Listening at localhost:3000'); //eslint-disable-line no-console
 });
