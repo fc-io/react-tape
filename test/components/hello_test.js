@@ -1,6 +1,6 @@
 import test from 'blue-tape';
 import React from 'react/addons';
-import Hello from '../../src/js/component';
+import Hello from '../../src/components/hello';
 
 const TestUtils = React.addons.TestUtils;
 

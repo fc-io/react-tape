@@ -1,8 +1,6 @@
 import './css/style.css';
 
 import React from 'react';
-import Hello from './js/component';
+import Hello from './components/hello';
 
-(function () {
-  React.render(<Hello />, document.getElementById('root'));
-}());
+React.render(<Hello />, document.getElementById('root'));
