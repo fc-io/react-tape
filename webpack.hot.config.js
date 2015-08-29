@@ -18,8 +18,7 @@ module.exports = {
       template: 'src/index.html',
       inject: true
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
     extensions: ['', '.js']
