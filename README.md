@@ -2,6 +2,10 @@
 
 A boilerplate for React using Tape for testing.
 
+### Disclaimer
+
+Not updated in quite a while. I would recommend you to look at other react boilerplates instead of this one.
+
 ### Getting Started
 
 1. clone this repo
