@@ -2,17 +2,19 @@
 
 A boilerplate for React using Tape for testing.
 
-### Disclaimer
-
-Not updated in quite a while. I would recommend you to look at other react boilerplates instead of this one.
-
 ### Getting Started
 
-1. clone this repo
-2. cd into folder
+1. `git clone https://github.com/fc-io/react-tape.git`
+2. `cd react-tape`
 3. `npm install`
 4. `npm start`
 5. open http://localhost:3000
+
+### Build for Production
+
+```
+npm run deploy
+```
 
 ### Testing
 
@@ -26,11 +28,9 @@ npm test
 npm run lint
 ```
 
-### Build for Production
+## Caveats
 
-```
-npm run deploy
-```
+Hot Reloading of stateless functional components does not work.
 
 ## License
 

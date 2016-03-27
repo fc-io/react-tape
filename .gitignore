@@ -1,6 +1,9 @@
-node_modules
-npm-debug.log
 .DS_Store
 .dropbox
 .dropbox.cache
+
+node_modules
+npm-debug.log
+
+dev
 dist
