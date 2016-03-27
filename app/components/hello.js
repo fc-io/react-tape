@@ -12,7 +12,7 @@ export default class Hello extends React.Component {
   render () {
     return (
       <div>
-        <h1 className="cblue">Hello World!!</h1>
+        <h1 className="cblue">Hello World!</h1>
         <p>{`Toggled: ${this.state.toggle}`}</p>
         <button onClick={this.toggle}>Toggle</button>
       </div>
