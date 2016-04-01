@@ -1,6 +1,8 @@
 ## React Tape
 
-A boilerplate for React using Tape for testing.
+A relatively simple boilerplate for React using Tape for testing.
+
+For something more full-fledged take a look at [https://github.com/fc-io/react-tape-redux](https://github.com/fc-io/react-tape-redux)
 
 ### Getting Started
 

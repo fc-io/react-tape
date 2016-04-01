@@ -10,10 +10,10 @@
   "globals": {
     // "__DEV__": true,
     "__dirname": false,
-    // "cancelAnimationFrame": false,
+    "cancelAnimationFrame": false,
     // "clearImmediate": true,
-    // "clearInterval": false,
-    // "clearTimeout": false,
+    "clearInterval": false,
+    "clearTimeout": false,
     "console": false,
     "document": false,
     // "escape": false,
@@ -25,12 +25,12 @@
     // "navigator": false,
     "process": false,
     // "Promise": true,
-    // "requestAnimationFrame": true,
+    "requestAnimationFrame": true,
     "require": false,
     // "Set": true,
     // "setImmediate": true,
-    // "setInterval": false,
-    // "setTimeout": false,
+    "setInterval": false,
+    "setTimeout": false,
     "window": false,
     // "XMLHttpRequest": false,
     // "pit": false
@@ -164,7 +164,7 @@
     // Stylistic Issues
     "array-bracket-spacing": [2, "never"],     // enforce spacing inside array brackets
     "block-spacing": [2, "never"],              // disallow or enforce spaces inside of single line blocks
-    "brace-style": 2,                           // enforce one true brace style (off by default)
+    "brace-style": [2, "1tbs", { "allowSingleLine": true }], // enforce one true brace style (off by default)
     "camelcase": [2, {"properties": "never"}],  // require camel case names
     "comma-spacing": 2,                         // enforce spacing before and after comma
     "comma-style": 2,                           // enforce one true comma style
@@ -176,7 +176,7 @@
     "id-blacklist": 0,                          // disallow certain identifiers to prevent them being used
     "id-length": 0,                             // enforce minimum and maximum identifier lengths (variable names, property names etc.)
     "id-match": 0,                              // require identifiers to match the provided regular expression
-    "indent": [2, 2],                           // specify tab or space width for your code
+    "indent": [2, 2, {"SwitchCase": 1}],        // specify tab or space width for your code
     "jsx-quotes": 2,                            // specify whether double or single quotes should be used in JSX attributes
     "key-spacing": 2,                           // enforce spacing between keys and values in object literal properties
     "keyword-spacing": 2,                       // enforce spacing before and after keywords
@@ -238,7 +238,7 @@
     "wrap-regex": 2,                            // require regex literals to be wrapped in parentheses (off by default)
 
     // ECMAScript 6
-    "arrow-body-style": [2, "always"],    // require braces in arrow function body
+    "arrow-body-style": 0,    // require braces in arrow function body
     "arrow-parens": [2, "as-needed"],     // require parens in arrow function arguments
     "arrow-spacing": 2,                   // require space before/after arrow function’s arrow
     "constructor-super": 2,               // ensure calling of super() in constructors
