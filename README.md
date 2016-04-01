@@ -10,7 +10,7 @@ For something more full-fledged take a look at [https://github.com/fc-io/react-t
 2. `cd react-tape`
 3. `npm install`
 4. `npm start`
-5. open http://localhost:3000
+5. open [http://localhost:3000](http://localhost:3000)
 
 ### Build for Production
 
