@@ -33,9 +33,23 @@ module.exports = {
         include: path.join(__dirname, 'app')
       },
       {
-        test: /\.jsx?$/,
+        test: /\.js$|\.jsx?$/,
         loaders: ['babel-loader'],
         include: path.join(__dirname, 'app')
+      },
+      {
+        test: /\.scss$/, loader: 'style!css!sass?outputStyle=expanded&includePaths[]=' + path.resolve(__dirname, './node_modules/compass-mixins/lib') // eslint-disable-line max-len,prefer-template
+      },
+      {
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url?limit=10000'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: 'file'
+      },
+      {
+        test: /\.json$/, exclude: /node_modules/, loader: 'json'
       }
     ]
   }

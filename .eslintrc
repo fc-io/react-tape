@@ -145,7 +145,7 @@
     "no-shadow-restricted-names": 2,    // disallow shadowing of names such as arguments
     "no-undef": 2,                      // disallow use of undeclared variables unless mentioned in a /*global */ block
     "no-undef-init": 2,                 // disallow use of undefined when initializing variables
-    "no-undefined": 2,                  // disallow use of undefined variable (off by default)
+    "no-undefined": 0,                  // disallow use of undefined variable (off by default)
     "no-unused-vars": [2, {"vars": "all", "args": "none"}], // disallow declaration of variables that are not used in the code
     "no-use-before-define": 2,          // disallow use of variables before they are defined
 
@@ -180,7 +180,7 @@
     "jsx-quotes": 2,                            // specify whether double or single quotes should be used in JSX attributes
     "key-spacing": 2,                           // enforce spacing between keys and values in object literal properties
     "keyword-spacing": 2,                       // enforce spacing before and after keywords
-    "linebreak-style": 2,                       // enforce linebreak style
+    "linebreak-style": 0,                       // enforce linebreak style
     "lines-around-comment": 0,                  // enforce empty lines around comments
     "max-depth": 0,                             // specify the maximum depth that blocks can be nested
     "max-len": [2, {
@@ -193,7 +193,7 @@
     "max-params": 0,                            // specify the number of parameters that can be used in the function declaration
     "max-statements": 0,                        // specify the maximum number of statement allowed in a function
     "max-statements-per-line": [2, { "max": 2 }],  // specify the maximum number of statements allowed per line
-    "new-cap": 2,                               // require a capital letter for constructors
+    "new-cap": 0,                               // require a capital letter for constructors
     "new-parens": 2,                            // disallow the omission of parentheses when invoking a constructor with no arguments
     "newline-after-var": 0,                     // require or disallow an empty newline after variable declarations
     "newline-before-return": 0,                 // require newline before return statement
@@ -225,7 +225,7 @@
     "quote-props": [2, "as-needed"],            // require quotes around object literal property names (off by default)
     "quotes": [2, "single"],                    // specify whether double or single quotes should be used
     "require-jsdoc": 0,                         // require JSDoc comment
-    "semi": [2, "never"],                       // require or disallow use of semicolons instead of ASI
+    "semi": [0, "never"],                       // require or disallow use of semicolons instead of ASI
     "semi-spacing": 2,                          // require a space after a semi-colon
     "sort-imports": 0,                          // enforce sorting import declarations within module
     "sort-vars": 0,                             // sort variables within the same declaration block (off by default)
