@@ -1,0 +1,81 @@
+.TreeTable2 {
+  background-color: #ddd;
+  
+  &-eq {
+    display: flex;
+    flex-flow: row nowrap;  
+  }
+  
+  &-tree {
+    display: flex;
+    flex-flow: column;
+    flex-grow: 0;
+  }
+   &-data {
+    display: flex;
+    flex-grow: 1;
+    flex-flow: column;
+   }
+  &-header {
+    height: 24px;
+    margin: 1px;
+    box-sizing: border-box;
+    background-color: white;
+  }
+  
+  &-group-block {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  &-group-flex, &-row-flex {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  
+  &-group-header, &-row-header {
+    flex-grow: 2;
+    min-width: 500px;
+    background-color: white;
+    margin: 1px;
+    padding: 1px 0px;
+  }
+  
+  &-group-button-div {
+    display: flex;
+    flex-grow: 0;
+  }
+  
+  &-row-data {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    flex-basis: 100%;
+  }
+  
+  &-cell {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 1px;
+    height: 24px;
+    background-color: white;
+    max-width: 200px;
+    &-amount {
+      padding: 3px 4px !important;
+      width: 100%;
+    }
+    .form-control {
+      padding: 0px 3px !important;
+      height: 24px !important;
+    }
+  }
+  
+  @for $i from 0 through 9 {
+    &-indent-#{$i} {
+      padding-left: 10px * $i;  
+    }
+  }
+}
