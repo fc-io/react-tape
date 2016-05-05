@@ -47,6 +47,9 @@ module.exports = {
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
         loader: 'file'
+      },
+      {
+        test: /\.json$/, exclude: /node_modules/, loader: 'json'
       }
     ]
   }
