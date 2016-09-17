@@ -18,7 +18,7 @@ open [http://localhost:3000](http://localhost:3000)
 ### Build for Production
 
 ```
-npm run deploy
+npm run build
 ```
 
 ### Testing
