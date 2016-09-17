@@ -1,15 +1,15 @@
 import React from 'react'
 
 export default class Hello extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.toggle = this.toggle.bind(this)
     this.state = {toggle: false}
   }
-  toggle () {
+  toggle() {
     this.setState({toggle: !this.state.toggle})
   }
-  render () {
+  render() {
     return (
       <div>
         <h1 className="cblue">Hello World!</h1>
