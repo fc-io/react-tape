@@ -67,14 +67,15 @@
     "no-inner-declarations": [1, "both"],     // disallow function or variable declarations in nested blocks
     "no-invalid-regexp": 1,                   // disallow invalid regular expression strings in the RegExp constructor
     "no-irregular-whitespace": 1,             // disallow irregular whitespace outside of strings and comments
-    "no-negated-in-lhs": 1,                   // disallow negation of the left operand of an in expression
     "no-obj-calls": 1,                        // disallow the use of object properties of the global object (Math and JSON) as functions
     "no-prototype-builtins": 1,               // Disallow use of Object.prototypes builtins directly
     "no-regex-spaces": 1,                     // disallow multiple spaces in a regular expression literal
     "no-sparse-arrays": 1,                    // disallow sparse arrays
+    "no-template-curly-in-string": 1,         // disallow template literal placeholder syntax in regular strings
     "no-unexpected-multiline": 1,             // disallow code that looks like two expressions but is actually one
     "no-unreachable": 1,                      // disallow unreachable statements after a return, throw, continue, or break statement
     "no-unsafe-finally": 1,                   // disallow control flow statements in finally blocks
+    "no-unsafe-negation": 1,                  // disallow negating the left operand of relational operators
     "use-isnan": 1,                           // disallow comparisons with the value NaN
     "valid-jsdoc": 1,                         // Ensure JSDoc comments are valid (off by default)
     "valid-typeof": 1,                        // Ensure that the results of typeof are compared against a valid string
@@ -83,6 +84,7 @@
     "accessor-pairs": 1,                // enforce getter/setter pairs in objects
     "array-callback-return": 1,         // enforce return statements in callbacks of array’s methods
     "block-scoped-var": 1,              // treat var statements as if they were block scoped (off by default)
+    "class-methods-use-this": 1,        // enforce that class methods utilize this
     "complexity": [1, 4],               // specify the maximum cyclomatic complexity allowed in a program (off by default)
     "consistent-return": 0,             // require return statements to either always or never specify values
     "curly": 1,                         // specify curly brace conventions for all control statements
@@ -105,7 +107,8 @@
     "no-extra-label": 1,                // disallow unnecessary labels
     "no-fallthrough": 1,                // disallow fallthrough of case statements
     "no-floating-decimal": 1,           // disallow the use of leading or trailing decimal points in numeric literals (off by default)
-    "no-implicit-coercion": 1,           // disallow the type conversions with shorter notations
+    "no-global-assign": 1,              // disallow assignments to native objects or read-only global variables
+    "no-implicit-coercion": 1,          // disallow the type conversions with shorter notations
     "no-implicit-globals": 1,           // disallow var and named functions in global scope
     "no-implied-eval": 1,               // disallow use of eval()-like methods
     "no-invalid-this": 1,               // disallow this keywords outside of classes or class-like objects
@@ -116,7 +119,6 @@
     "no-magic-numbers": 0,              // disallow the use of magic numbers
     "no-multi-spaces": 1,               // disallow use of multiple spaces
     "no-multi-str": 1,                  // disallow use of multiline strings
-    "no-native-reassign": 1,            // disallow reassignments of native objects
     "no-new": 1,                        // disallow use of new operator when not part of the assignment or comparison
     "no-new-func": 1,                   // disallow use of new operator for Function object
     "no-new-wrappers": 1,               // disallows creating new instances of String,Number, and Boolean
@@ -172,6 +174,7 @@
     "no-process-env": 1,                // disallow use of process.env
     "no-process-exit": 1,               // disallow process.exit() (on by default in the node environment)
     "no-restricted-modules": 1,         // restrict usage of specified node modules (off by default)
+    "no-restricted-properties": 0,      // disallow certain properties on certain objects
     "no-sync": 1,                       // disallow use of synchronous methods (off by default)
 
     // Stylistic Issues
@@ -184,6 +187,7 @@
     "computed-property-spacing": 1,             // require or disallow padding inside computed properties
     "consistent-this": [1, "that"],             // enforces consistent naming when capturing the current execution context (off by default)
     "eol-last": 1,                              // enforce newline at the end of file, with no multiple empty lines
+    "func-call-spacing": 1,         // require or disallow spacing between function identifiers and their invocations
     "func-names": 0,                            // require function expressions to have a name (off by default)
     "func-style": [1, "expression"],            // enforces use of function declarations or expressions (off by default)
     "id-blacklist": 0,                          // disallow certain identifiers to prevent them being used
@@ -193,8 +197,10 @@
     "jsx-quotes": 1,                            // specify whether double or single quotes should be used in JSX attributes
     "key-spacing": 1,                           // enforce spacing between keys and values in object literal properties
     "keyword-spacing": 1,                       // enforce spacing before and after keywords
+    "line-comment-position": 0,                 // enforce position of line comments
     "linebreak-style": 1,                       // enforce linebreak style
     "lines-around-comment": 0,                  // enforce empty lines around comments
+    "lines-around-directive": [1, { "before": "never", "after": "always" }],  // require or disallow newlines around directives
     "max-depth": 0,                             // specify the maximum depth that blocks can be nested
     "max-len": [1, {
       "code": 120,
@@ -224,7 +230,6 @@
     "no-new-object": 1,                         // disallow use of the Object constructor
     "no-plusplus": 1,                           // disallow use of unary operators, ++ and -- (off by default)
     "no-restricted-syntax": 0,                  // disallow use of certain syntax in code
-    "no-spaced-func": 1,                        // disallow space between function identifier and application
     "no-tabs": 1,                               // Disallow tabs in file
     "no-ternary": 0,                            // disallow the use of ternary operators (off by default)
     "no-trailing-spaces": 1,                    // disallow trailing whitespace at the end of lines
@@ -243,6 +248,8 @@
     "semi": [1, "never"],                       // require or disallow use of semicolons instead of ASI
     "semi-spacing": 1,                          // require a space after a semi-colon
     "sort-imports": 0,                          // enforce sorting import declarations within module
+    "symbol-description": 1,                    // require symbol descriptions
+    "sort-keys": [1, "asc", {"caseSensitive": false, "natural": true}],  // requires object keys to be sorted
     "sort-vars": 0,                             // sort variables within the same declaration block (off by default)
     "space-before-blocks": 1,                   // require or disallow a space before blocks
     "space-before-function-paren": [1, {"anonymous": "always", "named": "never"}], // require or disallow a space before function opening parenthesis
@@ -274,6 +281,7 @@
     "object-shorthand": 1,                // require method and property shorthand syntax for object literals
     "prefer-arrow-callback": 1,           // suggest using arrow functions as callbacks
     "prefer-const": 1,                    // suggest using const declaration for variables that are never reassigned after declared
+    "prefer-numeric-literals": 1,         // disallow parseInt() in favor of binary, octal, and hexadecimal literals
     "prefer-reflect": 1,                  // suggest using Reflect methods where applicable
     "prefer-rest-params": 1,              // suggest using the rest parameters instead of arguments
     "prefer-spread": 1,                   // suggest using the spread operator instead of .apply()

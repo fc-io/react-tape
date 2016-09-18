@@ -4,16 +4,29 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: [path.join(__dirname, 'app')],
-  resolve: {extensions: ['', '.js', '.jsx']},
+  module: {
+    loaders: [
+      {
+        include: path.join(__dirname, 'app'),
+        loaders: ['style', 'css'],
+        test: /\.css$/,
+      },
+      {
+        include: path.join(__dirname, 'app'),
+        loaders: ['babel'],
+        test: /\.jsx?$/,
+      },
+    ],
+  },
   output: {
-    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
+    path: path.join(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.html',
-      inject: true,
       hash: true,
+      inject: true,
+      template: 'app/index.html',
     }),
     new webpack.DefinePlugin({
       'process.env': {NODE_ENV: JSON.stringify('production')},
@@ -21,18 +34,5 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({compressor: {warnings: false}}),
     new webpack.optimize.AggressiveMergingPlugin(),
   ],
-  module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        loaders: ['style', 'css'],
-        include: path.join(__dirname, 'app'),
-      },
-      {
-        test: /\.jsx?$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, 'app'),
-      },
-    ],
-  },
+  resolve: {extensions: ['', '.js', '.jsx']},
 }
