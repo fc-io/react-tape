@@ -187,7 +187,7 @@
     "computed-property-spacing": 1,             // require or disallow padding inside computed properties
     "consistent-this": [1, "that"],             // enforces consistent naming when capturing the current execution context (off by default)
     "eol-last": 1,                              // enforce newline at the end of file, with no multiple empty lines
-    "func-call-spacing": 1,         // require or disallow spacing between function identifiers and their invocations
+    "func-call-spacing": 1,                     // require or disallow spacing between function identifiers and their invocations
     "func-names": 0,                            // require function expressions to have a name (off by default)
     "func-style": [1, "expression"],            // enforces use of function declarations or expressions (off by default)
     "id-blacklist": 0,                          // disallow certain identifiers to prevent them being used
@@ -265,7 +265,7 @@
     "arrow-parens": [1, "always"],        // require parens in arrow function arguments
     "arrow-spacing": 1,                   // require space before/after arrow function’s arrow
     "constructor-super": 1,               // ensure calling of super() in constructors
-    "generator-star-spacing": 1,          // enforce spacing around the * in generator functions
+    "generator-star-spacing": [1, {"before": false, "after": true}],  // enforce spacing around the * in generator functions
     "no-class-assign": 1,                 // disallow modifying variables of class declarations
     "no-confusing-arrow": 1,              // disallow arrow functions where they could be confused with comparisons
     "no-const-assign": 1,                 // disallow modifying variables that are declared using const
