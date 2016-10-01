@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 2017,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -84,7 +84,18 @@
     "accessor-pairs": 1,                // enforce getter/setter pairs in objects
     "array-callback-return": 1,         // enforce return statements in callbacks of array’s methods
     "block-scoped-var": 1,              // treat var statements as if they were block scoped (off by default)
-    "class-methods-use-this": 1,        // enforce that class methods utilize this
+    "class-methods-use-this": [1, {
+      "exceptMethods": [
+        "componentWillMount",
+        "componentDidMount",
+        "componentWillReceiveProps",
+        "shouldComponentUpdate",
+        "componentWillUpdate",
+        "componentDidUpdate",
+        "componentWillUnmount",
+        "render"
+      ]
+    }],                                 // enforce that class methods utilize this
     "complexity": [1, 4],               // specify the maximum cyclomatic complexity allowed in a program (off by default)
     "consistent-return": 0,             // require return statements to either always or never specify values
     "curly": 1,                         // specify curly brace conventions for all control statements
@@ -249,7 +260,7 @@
     "semi-spacing": 1,                          // require a space after a semi-colon
     "sort-imports": 0,                          // enforce sorting import declarations within module
     "symbol-description": 1,                    // require symbol descriptions
-    "sort-keys": [1, "asc", {"caseSensitive": false, "natural": true}],  // requires object keys to be sorted
+    "sort-keys": [0, "asc", {"caseSensitive": false, "natural": true}],  // requires object keys to be sorted
     "sort-vars": 0,                             // sort variables within the same declaration block (off by default)
     "space-before-blocks": 1,                   // require or disallow a space before blocks
     "space-before-function-paren": [1, {"anonymous": "always", "named": "never"}], // require or disallow a space before function opening parenthesis
@@ -326,7 +337,7 @@
     "react/jsx-indent": [1, 2],               // Validate JSX indentation
     "react/jsx-key": 1,                       // Validate JSX has key prop when in array or iterator
     "react/jsx-max-props-per-line": 0,        // Limit maximum of props on a single line in JSX
-    "react/jsx-no-bind": 1,                   // Prevent usage of .bind() and arrow functions in JSX props
+    "react/jsx-no-bind": 0,                   // Prevent usage of .bind() and arrow functions in JSX props
     "react/jsx-no-comment-textnodes": 1,      // Prevent comments from being inserted as text nodes
     "react/jsx-no-duplicate-props": 1,        // Prevent duplicate props in JSX
     "react/jsx-no-literals": 0,               // Prevent usage of unwrapped JSX strings
