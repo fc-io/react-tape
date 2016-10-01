@@ -1,4 +1,6 @@
 import React from 'react'
+import {css} from 'aphrodite/no-important'
+import styles from './hello.styles'
 
 export default class Hello extends React.Component {
   constructor(props) {
@@ -12,7 +14,7 @@ export default class Hello extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="cblue">Hello World!</h1>
+        <h1 className={css(styles.cblue)}>Hello World!</h1>
         <p>{`Toggled: ${this.state.toggle}`}</p>
         <button onClick={this.toggle}>Toggle</button>
       </div>

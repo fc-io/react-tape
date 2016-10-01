@@ -22,11 +22,6 @@ module.exports = {
     loaders: [
       {
         include: path.join(__dirname, 'app'),
-        loaders: ['style', 'css'],
-        test: /\.css$/,
-      },
-      {
-        include: path.join(__dirname, 'app'),
         loaders: ['babel'],
         test: /\.jsx?$/,
       },
