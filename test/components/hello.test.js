@@ -1,7 +1,10 @@
 import React from 'react'
 import test from 'blue-tape'
+import {StyleSheetTestUtils} from 'aphrodite'
 import {shallow} from 'enzyme'
 import Hello from '../../app/components/hello'
+
+StyleSheetTestUtils.suppressStyleInjection()
 
 test('hello component to contain a Hello World message', (t) => {
   const helloComponent = shallow(<Hello />)
@@ -21,3 +24,5 @@ test('hello component button to toggle toggle-message', (t) => {
 
   t.end()
 })
+
+test.onFinish(() => StyleSheetTestUtils.clearBufferAndResumeStyleInjection())
