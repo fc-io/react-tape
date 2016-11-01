@@ -7,7 +7,7 @@ For something more full-fledged take a look at [https://github.com/fc-io/react-t
 ### Getting Started
 
 ```
-git clone https://github.com/fc-io/react-tape.git
+git clone git@github.com:fc-io/react-tape.git
 cd react-tape
 npm install
 npm start
