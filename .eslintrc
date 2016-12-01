@@ -9,7 +9,8 @@
   },
   "plugins": [
     "babel",
-    "react"
+    "flowtype",
+    "react",
   ],
   "env": {
     "browser": true,
@@ -31,6 +32,7 @@
     // "exports": false,
     // "fetch": false,
     // "global": false,
+    "jest": true,
     // "Map": true,
     "module": false,
     // "navigator": false,
@@ -51,7 +53,7 @@
     "comma-dangle": [1, "always-multiline"],  // disallow trailing commas in object literals
     "no-cond-assign": 1,                      // disallow assignment in conditional expressions
     "no-console": 1,                          // disallow use of console (off by default in the node environment)
-    "no-constant-condition": 1,               // disallow use of constant expressions in conditions
+    "no-constant-condition": 0,               // disallow use of constant expressions in conditions
     "no-control-regex": 1,                    // disallow control characters in regular expressions
     "no-debugger": 1,                         // disallow use of debugger
     "no-dupe-args": 1,                        // disallow duplicate arguments in functions
@@ -84,19 +86,8 @@
     "accessor-pairs": 1,                // enforce getter/setter pairs in objects
     "array-callback-return": 1,         // enforce return statements in callbacks of array’s methods
     "block-scoped-var": 1,              // treat var statements as if they were block scoped (off by default)
-    "class-methods-use-this": [1, {
-      "exceptMethods": [
-        "componentWillMount",
-        "componentDidMount",
-        "componentWillReceiveProps",
-        "shouldComponentUpdate",
-        "componentWillUpdate",
-        "componentDidUpdate",
-        "componentWillUnmount",
-        "render"
-      ]
-    }],                                 // enforce that class methods utilize this
-    "complexity": [1, 4],               // specify the maximum cyclomatic complexity allowed in a program (off by default)
+    "class-methods-use-this": 0,        // enforce that class methods utilize this
+    "complexity": [1, 6],               // specify the maximum cyclomatic complexity allowed in a program (off by default)
     "consistent-return": 0,             // require return statements to either always or never specify values
     "curly": 1,                         // specify curly brace conventions for all control statements
     "default-case": 0,                  // require default case in switch statements (off by default)
@@ -110,7 +101,7 @@
     "no-div-regex": 1,                  // disallow division operators explicitly at beginning of regular expression (off by default)
     "no-else-return": 0,                // disallow else after a return in an if (off by default)
     "no-empty-function": 1,             // disallow use of empty functions
-    "no-empty-pattern": 1,              // disallow use of empty destructuring patterns
+    "no-empty-pattern": 0,              // disallow use of empty destructuring patterns
     "no-eq-null": 1,                    // disallow comparisons to null without a type-checking operator (off by default)
     "no-eval": 1,                       // disallow use of eval()
     "no-extend-native": 1,              // disallow adding to native types
@@ -138,18 +129,21 @@
     "no-param-reassign": 1,             // disallow reassignment of function parameters
     "no-proto": 1,                      // disallow usage of __proto__ property
     "no-redeclare": 1,                  // disallow declaring the same variable more then once
+    "no-restricted-properties": 0,      // disallow certain properties on certain objects
     "no-return-assign": 1,              // disallow use of assignment in return statement
+    "no-return-await": 1,               // disallow unnecessary return await
     "no-script-url": 1,                 // disallow use of javascript: urls.
     "no-self-assign": 1,                // disallow assignments where both sides are exactly the same
     "no-self-compare": 1,               // disallow comparisons where both sides are exactly the same (off by default)
     "no-sequences": 1,                  // disallow use of comma operator
-    "no-throw-literal": 1,              // restrict what can be thrown as an exception
+    "no-throw-literal": 2,              // restrict what can be thrown as an exception
     "no-unmodified-loop-condition": 1,  // disallow unmodified conditions of loops
     "no-unused-expressions": 0,         // disallow usage of expressions in statement position
     "no-unused-labels": 1,              // disallow unused labels
     "no-useless-call": 1,               // disallow unnecessary .call() and .apply()
     "no-useless-concat": 1,             // disallow unnecessary concatenation of literals or template literals
     "no-useless-escape": 1,             // disallow unnecessary usage of escape character
+    "no-useless-return": 1,             // disallow redundant return statements
     "no-void": 1,                       // disallow use of void operator (off by default)
     "no-warning-comments": 0,           // disallow usage of configurable warning terms in comments": 1,                            // e.g. TODO or FIXME (off by default)
     "no-with": 1,                       // disallow use of the with statement
@@ -185,7 +179,6 @@
     "no-process-env": 1,                // disallow use of process.env
     "no-process-exit": 1,               // disallow process.exit() (on by default in the node environment)
     "no-restricted-modules": 1,         // restrict usage of specified node modules (off by default)
-    "no-restricted-properties": 0,      // disallow certain properties on certain objects
     "no-sync": 1,                       // disallow use of synchronous methods (off by default)
 
     // Stylistic Issues
@@ -199,6 +192,7 @@
     "consistent-this": [1, "that"],             // enforces consistent naming when capturing the current execution context (off by default)
     "eol-last": 1,                              // enforce newline at the end of file, with no multiple empty lines
     "func-call-spacing": 1,                     // require or disallow spacing between function identifiers and their invocations
+    "func-name-matching": 1,                    // require function names to match the name of the variable or property to which they are assigned
     "func-names": 0,                            // require function expressions to have a name (off by default)
     "func-style": [1, "expression"],            // enforces use of function declarations or expressions (off by default)
     "id-blacklist": 0,                          // disallow certain identifiers to prevent them being used
@@ -211,7 +205,7 @@
     "line-comment-position": 0,                 // enforce position of line comments
     "linebreak-style": 1,                       // enforce linebreak style
     "lines-around-comment": 0,                  // enforce empty lines around comments
-    "lines-around-directive": [1, { "before": "never", "after": "always" }],  // require or disallow newlines around directives
+    "lines-around-directive": [1, { "before": "never", "after": "always" }], // require or disallow newlines around directives
     "max-depth": 0,                             // specify the maximum depth that blocks can be nested
     "max-len": [1, {
       "code": 120,
@@ -222,13 +216,13 @@
     "max-nested-callbacks": 0,                  // specify the maximum depth callbacks can be nested
     "max-params": 0,                            // specify the number of parameters that can be used in the function declaration
     "max-statements": 0,                        // specify the maximum number of statement allowed in a function
-    "max-statements-per-line": [1, { "max": 2 }],  // specify the maximum number of statements allowed per line
+    "max-statements-per-line": [1, { "max": 3 }],  // specify the maximum number of statements allowed per line
     "multiline-ternary": 0,                     // enforce newlines between operands of ternary expressions
     "new-cap": 0,                               // require a capital letter for constructors
     "new-parens": 1,                            // disallow the omission of parentheses when invoking a constructor with no arguments
     "newline-after-var": 0,                     // require or disallow an empty newline after variable declarations
     "newline-before-return": 0,                 // require newline before return statement
-    "newline-per-chained-call": [1, {"ignoreChainWithDepth": 3}], // enforce newline after each call when chaining the calls
+    "newline-per-chained-call": [1, {"ignoreChainWithDepth": 5}], // enforce newline after each call when chaining the calls
     "no-array-constructor": 1,                  // disallow use of the Array constructor
     "no-bitwise": 1,                            // disallow use of bitwise operators
     "no-continue": 1,                           // disallow use of the continue statement
@@ -244,7 +238,7 @@
     "no-tabs": 1,                               // Disallow tabs in file
     "no-ternary": 0,                            // disallow the use of ternary operators (off by default)
     "no-trailing-spaces": 1,                    // disallow trailing whitespace at the end of lines
-    "no-underscore-dangle": 1,                  // disallow dangling underscores in identifiers
+    "no-underscore-dangle": 0,                  // disallow dangling underscores in identifiers
     "no-unneeded-ternary": 1,                   // disallow the use of ternary operators when a simpler alternative exists
     "no-whitespace-before-property": 1,         // disallow whitespace before properties
     "object-curly-spacing": [1, "never"],       // require or disallow padding inside curly braces
@@ -258,9 +252,9 @@
     "require-jsdoc": 0,                         // require JSDoc comment
     "semi": [1, "never"],                       // require or disallow use of semicolons instead of ASI
     "semi-spacing": 1,                          // require a space after a semi-colon
+    "sort-keys": 0,                             // require object keys to be sorted
     "sort-imports": 0,                          // enforce sorting import declarations within module
-    "symbol-description": 1,                    // require symbol descriptions
-    "sort-keys": [0, "asc", {"caseSensitive": false, "natural": true}],  // requires object keys to be sorted
+    "symbol-description": 0,                    // require symbol descriptions
     "sort-vars": 0,                             // sort variables within the same declaration block (off by default)
     "space-before-blocks": 1,                   // require or disallow a space before blocks
     "space-before-function-paren": [1, {"anonymous": "always", "named": "never"}], // require or disallow a space before function opening parenthesis
@@ -293,7 +287,6 @@
     "prefer-arrow-callback": 1,           // suggest using arrow functions as callbacks
     "prefer-const": 1,                    // suggest using const declaration for variables that are never reassigned after declared
     "prefer-numeric-literals": 1,         // disallow parseInt() in favor of binary, octal, and hexadecimal literals
-    "prefer-reflect": 1,                  // suggest using Reflect methods where applicable
     "prefer-rest-params": 1,              // suggest using the rest parameters instead of arguments
     "prefer-spread": 1,                   // suggest using the spread operator instead of .apply()
     "prefer-template": 1,                 // suggest using template literals instead of strings concatenation
@@ -322,7 +315,7 @@
     "react/require-optimization": 0,      // Enforce React components to have a shouldComponentUpdate method
     "react/require-render-return": 0,     // Enforce ES5 or ES6 class for returning value in render function
     "react/self-closing-comp": 1,         // Prevent extra closing tags for components without children
-    "react/sort-comp": 1,                 // Enforce component methods order
+    "react/sort-comp": 0,                 // Enforce component methods order
     "react/sort-prop-types": 1,           // Enforce propTypes declarations alphabetical sorting
 
     // JSX
@@ -337,7 +330,7 @@
     "react/jsx-indent": [1, 2],               // Validate JSX indentation
     "react/jsx-key": 1,                       // Validate JSX has key prop when in array or iterator
     "react/jsx-max-props-per-line": 0,        // Limit maximum of props on a single line in JSX
-    "react/jsx-no-bind": 0,                   // Prevent usage of .bind() and arrow functions in JSX props
+    "react/jsx-no-bind": 1,                   // Prevent usage of .bind() and arrow functions in JSX props
     "react/jsx-no-comment-textnodes": 1,      // Prevent comments from being inserted as text nodes
     "react/jsx-no-duplicate-props": 1,        // Prevent duplicate props in JSX
     "react/jsx-no-literals": 0,               // Prevent usage of unwrapped JSX strings
@@ -353,5 +346,23 @@
     // React Native
     // "react-native/no-unused-styles": 1,
     // "react-native/split-platform-components": 1,
+
+    // Flow
+    "flowtype/boolean-style": [2, "boolean"],
+    "flowtype/define-flow-type": 1,
+    "flowtype/delimiter-dangle": 0,
+    "flowtype/generic-spacing": [2, "never"],
+    "flowtype/no-weak-types": 0,
+    "flowtype/require-parameter-type": 0,
+    "flowtype/require-return-type": 0,
+    "flowtype/require-valid-file-annotation": 0,
+    "flowtype/semi": 0,
+    "flowtype/space-after-type-colon": [2, "always"],
+    "flowtype/space-before-generic-bracket": [2, "never"],
+    "flowtype/space-before-type-colon": [2, "never"],
+    "flowtype/type-id-match": 0,
+    "flowtype/union-intersection-spacing": [2, "always"],
+    "flowtype/use-flow-type": 1,
+    "flowtype/valid-syntax": 1
   }
 }

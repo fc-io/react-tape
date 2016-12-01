@@ -8,7 +8,6 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     port: 3333,
-    progress: true,
     stats: 'errors-only',
   },
   devtool: 'source-map',
@@ -19,13 +18,13 @@ module.exports = {
     path.join(__dirname, 'app'),
   ],
   module: {
-    loaders: [
-      {
-        include: path.join(__dirname, 'app'),
-        loaders: ['babel'],
-        test: /\.jsx?$/,
+    rules: [{
+      test: /\.jsx?$/,
+      include: path.join(__dirname, 'app'),
+      use: {
+        loader: 'babel-loader',
       },
-    ],
+    }],
   },
   output: {
     filename: 'bundle.js',
@@ -38,5 +37,5 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
-  resolve: {extensions: ['', '.js', '.jsx']},
+  resolve: {extensions: ['.js', '.jsx']},
 }

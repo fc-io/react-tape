@@ -5,13 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: [path.join(__dirname, 'app')],
   module: {
-    loaders: [
-      {
-        include: path.join(__dirname, 'app'),
-        loaders: ['babel'],
-        test: /\.jsx?$/,
+    rules: [{
+      test: /\.jsx?$/,
+      include: path.join(__dirname, 'app'),
+      use: {
+        loader: 'babel-loader',
       },
-    ],
+    }],
   },
   output: {
     filename: 'bundle.js',
@@ -29,5 +29,5 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({compressor: {warnings: false}}),
     new webpack.optimize.AggressiveMergingPlugin(),
   ],
-  resolve: {extensions: ['', '.js', '.jsx']},
+  resolve: {extensions: ['.js', '.jsx']},
 }
